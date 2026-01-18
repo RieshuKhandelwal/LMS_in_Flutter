@@ -87652,7 +87652,7 @@ A.aod.prototype={
 $0(){this.a.w=this.b},
 $S:0}
 A.aoi.prototype={
-$0(){return A.fp(this.a).fc("/",null)},
+$0(){return A.fp(this.a).fc("/login",null)},
 $S:0}
 A.oY.prototype={
 a9(){return new A.Ed($.fI())}}
