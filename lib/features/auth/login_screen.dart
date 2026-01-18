@@ -161,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
               TextButton(
                 onPressed: () => context.go('/register'),
                 child: Text(
-                  'Don\'t have an account? Register',
+                  'Don\'t have an YYYY? Register',
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.secondary,
                   ),
