@@ -1,0 +1,38 @@
+name: Deploy Flutter Web
+
+on:
+  # Trigger the workflow when a push is made to the master branch
+  push:
+    branches:
+      - master
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Set up the Flutter SDK environment
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable' # Or 'beta', 'dev', 'master'
+
+      # 3. Install project dependencies
+      - name: Install dependencies
+        run: flutter pub get
+
+      # 4. Build the Flutter web application
+      - name: Build web application
+        run: flutter build web --base-href /LMS_in_Flutter/ --release
+
+      # 5. Deploy the built site to the gh-pages branch
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # The directory the action should deploy
+          publish_dir: ./build/web
