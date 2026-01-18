@@ -153,7 +153,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
                 // Login Link
                 TextButton(
-                  onPressed: () => context.go('/'),
+                  onPressed: () => context.go('/login'),
                   child: Text(
                     'Already have an account? Login',
                     style: TextStyle(
